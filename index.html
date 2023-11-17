@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<body lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Flex</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>interactive flex-box</h1>
+    </header>
+    <div class="flex-container">
+      <div class="box red-box">red</div>
+      <div class="box blue-box">blue</div>
+      <div class="box green-box">green</div>
+      <div class="box orange-box">orange</div>
+      <div class="box purple-box">purple</div>
+      <div class="box yellow-box">purple</div>
+    </div>
+  </body>
+  <div class="controls">
+    <div>
+      <input type="radio" id="block"/>
+      <label for="block">Block</label>
+    </div>
+    <div>
+      <input type="radio" id="flex" />
+      <label for="flex">Flex-box</label>
+    </div>
+
+    <div class="controls-box justify-box">
+      <label for="justify-select">Justify Content</label>
+      <select name="justify" id="justify-select">
+        <option value="">Choose an option</option>
+        <option value="center">Center</option>
+        <option value="space-around">Space-around</option>
+        <option value="space-between">Space-between</option>
+        <option value="space-evenly">Space-evenly</option>
+        <option value="flex-start">Flex-start</option>
+        <option value="flex-end">Flex-end</option>
+      </select>
+    </div>
+
+    <div class="controls-box align-box">
+      <label for="align-select">Align Items</label>
+      <select name="align" id="align-select">
+        <option value="">Choose an option</option>
+        <option value="center">Center</option>
+        <option value="flex-start">Flex-start</option>
+        <option value="flex-end">Flex-end</option>
+        <option value="stretch">Stretch</option>
+      </select>
+    </div>
+
+    <div class="controls-box direction-box">
+      <label for="direction-select">Direction</label>
+      <select name="direction" id="direction-select">
+        <option value="">Choose an option</option>
+        <option value="column">Column</option>
+        <option value="row">Row</option>
+      </select>
+    </div>
+
+    <div class="controls-box gap-box">
+      <label for="gap-select">Gap</label>
+      <select name="gap" id="gap-select">
+        <option value="">Choose a size</option>
+        <option value="0">0</option>
+        <option value="6">6</option>
+        <option value="12">12</option>
+        <option value="16">16</option>
+        <option value="20">20</option>
+        <option value="24">24</option>
+      </select>
+    </div>
+  </div>
+
+  <script>
+    const container = document.querySelector('.flex-container');
+    const block = document.getElementById('block');
+    const flex = document.getElementById('flex');
+    const justify = document.querySelector('.justify-box');
+    const align = document.querySelector('.align-box');
+    const direction = document.querySelector('.direction-box');
+    const gap = document.querySelector('.gap-box');
+
+  block.checked = true
+  flex.addEventListener('change', () => {
+    container.style.display = 'flex'
+    block.checked = false
+  });
+  block.addEventListener('change', () => {
+    container.style.display = 'block'
+    flex.checked = false
+  });
+
+  justify.addEventListener('change', (event) => {
+    container.style.justifyContent = event.target.value
+  })
+
+  align.addEventListener('change', (event) => {
+    container.style.alignItems = event.target.value
+  })
+
+  direction.addEventListener('change', (event) => {
+    container.style.flexDirection = event.target.value
+  })
+
+  gap.addEventListener('change', (event) => {
+  container.style.gap = `${event.target.value}px`
+  })
+
+  </script>
+</body>
+</html>
