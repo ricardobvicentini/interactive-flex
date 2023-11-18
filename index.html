@@ -24,7 +24,7 @@
     </div>
     <div class="controls">
       <div>
-        <input type="radio" id="flex" name="flex" />
+        <input type="checkbox" id="flex" name="flex" />
         <label for="flex">Flex-box</label>
       </div>
 
@@ -83,13 +83,14 @@
       const direction = document.querySelector('.direction-box');
       const gap = document.querySelector('.gap-box');
 
-      /*     flex.addEventListener('change', () => {
+      flex.addEventListener('change', () => {
         container.style.display === 'flex'
           ? (container.style.display = 'block')
           : (container.style.display = 'flex');
-      }); */
+      });
 
-      flex.addEventListener('click', () => {
+      // Radio Button
+      /*      flex.addEventListener('click', () => {
         container.style.display = 'flex';
         if (flex.hasAttribute('checked')) {
           flex.removeAttribute('checked', 'checked');
@@ -97,7 +98,7 @@
           container.style.display = 'block';
         } else flex.setAttribute('checked', 'checked');
       });
-
+ */
       justify.addEventListener('change', (event) => {
         container.style.justifyContent = event.target.value;
       });
